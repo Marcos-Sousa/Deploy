@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USUARIO }}
+        password: ${{ secrets.FTP_SENHA }}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
