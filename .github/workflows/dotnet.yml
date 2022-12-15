@@ -24,7 +24,7 @@ jobs:
         username: ${{ secrets.FTP_USUARIO }}
         password: ${{ secrets.FTP_SENHA }}
         remote_dir: "/www/api"
-        local_dir: "/Deploy/bin/Debug/net6.0/Deploy.dll"
+        local_dir: "/Deploy/bin/Release/net6.0/publish/Deploy.dll"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
