@@ -17,9 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        dotnet-version: 6.0.x
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USUARIO }}
         password: ${{ secrets.FTP_SENHA }}
