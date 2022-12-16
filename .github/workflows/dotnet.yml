@@ -22,9 +22,9 @@ jobs:
         dotnet-version: 6.0.x
         name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        server: ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USUARIO }}
-        password: ${{ secrets.FTP_SENHA }}
+        server: construlive
+        username: ftp.construlive.com.br
+        password: live123
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -38,11 +38,11 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        server: ${{ secrets.FTP_HOST }}
+        server: construlive
         # FTP account username
-        username: ${{ secrets.FTP_USUARIO }}
+        username: ftp.construlive.com.br
         # FTP account password
-        password: ${{ secrets.FTP_SENHA }}
+        password: live123
         # The local folder to copy, defaults to root project folder
         server-dir: /www/api/
         local-dir: /home/runner/work/Deploy/Deploy/Release/
