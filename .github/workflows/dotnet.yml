@@ -45,4 +45,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
         server-dir: "/www/api"
-        local-dir: "./Release"
+        local-dir: "./Release/"
