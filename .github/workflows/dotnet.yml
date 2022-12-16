@@ -25,8 +25,6 @@ jobs:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USUARIO }}
         password: ${{ secrets.FTP_SENHA }}
-        remote_dir: "/www/api"
-        local-dir: "./Release/"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -46,5 +44,5 @@ jobs:
         # FTP account password
         password: ${{ secrets.FTP_SENHA }}
         # The local folder to copy, defaults to root project folder
-        server-dir: "/www/api/"
-        local-dir: "./Release/"
+        server-dir: /www/api/
+        local-dir: /home/runner/work/Deploy/Deploy/Release/
