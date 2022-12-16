@@ -25,6 +25,7 @@ jobs:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USUARIO }}
         password: ${{ secrets.FTP_SENHA }}
+        port: 21
         remote_dir: /www/api/
         local_dir: /home/runner/work/Deploy/Deploy/Release/
     - name: Restore dependencies
