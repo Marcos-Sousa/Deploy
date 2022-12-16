@@ -32,7 +32,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish -c Release --output ./Release
+      run: dotnet publish -c Release
       
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -45,4 +45,3 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
         server-dir: "/www/api"
-        local-dir: "Release/"
