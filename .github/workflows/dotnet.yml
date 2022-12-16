@@ -25,9 +25,8 @@ jobs:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USUARIO }}
         password: ${{ secrets.FTP_SENHA }}
-        port: 21
-        remote_dir: /www/api/
-        local_dir: /home/runner/work/Deploy/Deploy/Release/
+        remote_dir: "/www/api"
+        local-dir: "./Release/"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -35,4 +34,17 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish -c Release --output ./Release
+      run: dotnet publish -c Release  --output ./Release
+      
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+        server: ${{ secrets.FTP_HOST }}
+        # FTP account username
+        username: ${{ secrets.FTP_USERNAME }}
+        # FTP account password
+        password: ${{ secrets.FTP_PASSWORD }}
+        # The local folder to copy, defaults to root project folder
+        server-dir: "/www/api/"
+        local-dir: "./Release/"
